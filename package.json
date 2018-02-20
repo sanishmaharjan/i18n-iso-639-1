@@ -1,0 +1,39 @@
+{
+    "name": "iso-639-1",
+    "version": "1.0.0",
+    "description": "JavaScript utilities for ISO-639-1 codes",
+    "homepage": "https://github.com/sanishmaharjan/i18n-iso-639-1.git#readme",
+    "main": "src/index.js",
+    "scripts": {
+        "build": "webpack",
+        "test": "mocha"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sanishmaharjan/i18n-iso-639-1.git"
+    },
+    "keywords": [
+        "i18n",
+        "i18n-iso",
+        "iso",
+        "iso-639",
+        "iso-639-1",
+        "language code",
+        "locale",
+        "locale code"
+    ],
+    "author": "Sanish Maharjan <sanishmaharjan@lftechnology.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-plugin-add-module-exports": "^0.2.1",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-preset-es2016": "^6.24.1",
+        "babel-preset-stage-2": "^6.24.1",
+        "clean-webpack-plugin": "^0.1.17",
+        "mocha": "^4.0.1",
+        "webpack": "^3.10.0"
+    }
+}

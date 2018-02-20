@@ -7,4 +7,4 @@ script:
   - yarn build
   - yarn test
 node_js:
-  - "7"%
+  - "7"

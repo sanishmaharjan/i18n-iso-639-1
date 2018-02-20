@@ -1,1 +1,2 @@
-module.exports = require('./build/index');
+const i18nIso = require('./build/index');
+module.exports = i18nIso.i18nIsoFunctions;

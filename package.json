@@ -1,9 +1,9 @@
 {
     "name": "i18n-iso-639-1",
-    "version": "1.0.1",
+    "version": "1.1.2",
     "description": "JavaScript utilities for ISO-639-1 codes",
     "homepage": "https://github.com/sanishmaharjan/i18n-iso-639-1.git#readme",
-    "main": "src/index.js",
+    "main": "./index.js",
     "scripts": {
         "build": "webpack",
         "test": "mocha"
@@ -35,5 +35,8 @@
         "clean-webpack-plugin": "^0.1.17",
         "mocha": "^4.0.1",
         "webpack": "^3.10.0"
+    },
+    "dependencies": {
+        "babel-preset-env": "^1.6.1"
     }
 }

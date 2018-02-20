@@ -18,7 +18,7 @@ let webpackConfig = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['es2016', 'stage-2'],
+            presets: ['es2016', 'env', 'stage-2'],
             plugins: ['add-module-exports', 'transform-runtime'],
           },
         },

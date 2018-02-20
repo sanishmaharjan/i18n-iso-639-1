@@ -677,37 +677,6 @@ $export($export.S, 'Object', {
 
 /***/ }),
 
-/***/ "./node_modules/webpack/buildin/harmony-module.js":
-/***/ (function(module, exports) {
-
-module.exports = function(originalModule) {
-	if(!originalModule.webpackPolyfill) {
-		var module = Object.create(originalModule);
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		Object.defineProperty(module, "exports", {
-			enumerable: true,
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-
-/***/ }),
-
 /***/ "./src/data.json":
 /***/ (function(module, exports) {
 
@@ -720,57 +689,52 @@ module.exports = {"aa":{"name":"Afar","nativeName":"Afaraf"},"ab":{"name":"Abkha
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__ = __webpack_require__("./node_modules/babel-runtime/core-js/object/keys.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__ = __webpack_require__("./node_modules/babel-runtime/core-js/object/keys.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_values__ = __webpack_require__("./node_modules/babel-runtime/core-js/object/values.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_values___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_values__);
 
 
-const isoCodes = __webpack_require__("./src/data.json");
 
-module.exports = class ISO6391 {
-    static getLanguages(codes = []) {
+
+const isoCodes = __webpack_require__("./src/data.json");
+const i18nIsoFunctions = {
+    getLanguages: function getLanguages(codes) {
         return codes.map(code => ({
             code,
-            name: ISO6391.getName(code),
-            nativeName: ISO6391.getNativeName(code)
+            name: this.getName(code),
+            nativeName: this.getNativeName(code)
         }));
-    }
-
-    static getAllNames() {
+    },
+    getAllNames: function getAllNames() {
         return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_values___default()(isoCodes).map(l => l.name);
-    }
-
-    static getName(code) {
-        return ISO6391.validate(code) ? isoCodes[code].name : '';
-    }
-
-    static getNativeName(code) {
-        return ISO6391.validate(code) ? isoCodes[code].nativeName : '';
-    }
-
-    static getAllNativeNames() {
+    },
+    getName: function getName(code) {
+        return this.validate(code) ? isoCodes[code].name : '';
+    },
+    getNativeName: function getNativeName(code) {
+        return this.validate(code) ? isoCodes[code].nativeName : '';
+    },
+    getAllNativeNames: function getAllNativeNames() {
         return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_values___default()(isoCodes).map(l => l.nativeName);
-    }
-
-    static getAllCodes() {
+    },
+    getAllCodes: function getAllCodes() {
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default()(isoCodes);
-    }
-
-    static getCode(name) {
+    },
+    getCode: function getCode(name) {
         const code = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default()(isoCodes).find(code => {
             const language = isoCodes[code];
 
             return language.name.toLowerCase() === name.toLowerCase() || language.nativeName.toLowerCase() === name.toLowerCase();
         });
         return code || '';
-    }
-
-    static validate(code) {
+    },
+    validate: function validate(code) {
         return isoCodes[code] !== undefined;
     }
 };
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+exports.i18nIsoFunctions = i18nIsoFunctions;
 
 /***/ })
 

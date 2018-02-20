@@ -1,35 +1,30 @@
-const isoCodes = require('./data');
+'use strict';
 
-module.exports = class ISO6391 {
-    static getLanguages(codes = []) {
+const isoCodes = require('./data');
+const i18nIsoFunctions = {
+    getLanguages : function getLanguages(codes) {
         return codes.map(code => ({
             code,
-            name: ISO6391.getName(code),
-            nativeName: ISO6391.getNativeName(code),
+            name: this.getName(code),
+            nativeName: this.getNativeName(code),
         }));
-    }
-
-    static getAllNames() {
+    },
+    getAllNames : function getAllNames() {
         return Object.values(isoCodes).map(l => l.name);
-    }
-
-    static getName(code) {
-        return ISO6391.validate(code) ? isoCodes[code].name : '';
-    }
-
-    static getNativeName(code) {
-        return ISO6391.validate(code) ? isoCodes[code].nativeName : '';
-    }
-
-    static getAllNativeNames() {
+    },
+    getName : function getName(code) {
+        return this.validate(code) ? isoCodes[code].name : '';
+    },
+    getNativeName : function getNativeName(code) {
+        return this.validate(code) ? isoCodes[code].nativeName : '';
+    },
+    getAllNativeNames : function getAllNativeNames() {
         return Object.values(isoCodes).map(l => l.nativeName);
-    }
-
-    static getAllCodes() {
+    },
+    getAllCodes : function getAllCodes() {
         return Object.keys(isoCodes);
-    }
-
-    static getCode(name) {
+    },
+    getCode : function getCode(name) {
         const code = Object.keys(isoCodes).find(code => {
             const language = isoCodes[code];
 
@@ -39,9 +34,10 @@ module.exports = class ISO6391 {
             );
         });
         return code || '';
-    }
-
-    static validate(code) {
+    },
+    validate : function validate(code) {
         return isoCodes[code] !== undefined;
     }
 };
+
+exports.i18nIsoFunctions = i18nIsoFunctions;

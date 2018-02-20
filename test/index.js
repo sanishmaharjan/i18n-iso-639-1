@@ -1,35 +1,35 @@
 const assert = require('assert');
-const ISO6391 = require('../src/index');
+const i18nIso = require('../index');
 
 describe('ISO6391', function() {
     it('Should return valid language name', function() {
-        assert.equal(ISO6391.getName('en'), 'English');
-        assert.equal(ISO6391.getName('pt'), 'Portuguese');
-        assert.equal(ISO6391.getName('es'), 'Spanish');
+        assert.equal(i18nIso.getName('en'), 'English');
+        assert.equal(i18nIso.getName('pt'), 'Portuguese');
+        assert.equal(i18nIso.getName('es'), 'Spanish');
     });
 
     it('Should return valid native language Name', function() {
-        assert.equal(ISO6391.getNativeName('en'), 'English');
-        assert.equal(ISO6391.getNativeName('zh'), '中文');
-        assert.equal(ISO6391.getNativeName('es'), 'Español');
+        assert.equal(i18nIso.getNativeName('en'), 'English');
+        assert.equal(i18nIso.getNativeName('zh'), '中文');
+        assert.equal(i18nIso.getNativeName('es'), 'Español');
     });
 
     it('Should return valid locale code', function() {
-        assert.equal(ISO6391.getCode('English'), 'en');
-        assert.equal(ISO6391.getCode('Portuguese'), 'pt');
-        assert.equal(ISO6391.getCode('Spanish'), 'es');
-        assert.equal(ISO6391.getCode('xx'), '');
+        assert.equal(i18nIso.getCode('English'), 'en');
+        assert.equal(i18nIso.getCode('Portuguese'), 'pt');
+        assert.equal(i18nIso.getCode('Spanish'), 'es');
+        assert.equal(i18nIso.getCode('xx'), '');
     });
 
     it('Should valid locale code', function() {
-        assert.equal(ISO6391.validate('en'), true);
-        assert.equal(ISO6391.validate('xx'), false);
-        assert.equal(ISO6391.validate('es'), true);
+        assert.equal(i18nIso.validate('en'), true);
+        assert.equal(i18nIso.validate('xx'), false);
+        assert.equal(i18nIso.validate('es'), true);
     });
 
     it('Should return languages', function () {
         it('[en, zh]', function() {
-            assert.deepEqual(ISO6391.getLanguages(['en', 'zh', 'xx']), [
+            assert.deepEqual(i18nIso.getLanguages(['en', 'zh', 'xx']), [
                 {
                     code: 'en',
                     name: 'English',
